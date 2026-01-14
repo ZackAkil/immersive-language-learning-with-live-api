@@ -1,12 +1,6 @@
 {
     "name": "Immersive Language Learning",
     "description": "A real-time AI language tutor using Gemini Live API on Cloud Run.",
-    "env": {
-        "PROJECT_ID": {
-            "description": "Google Cloud Project ID",
-            "required": true
-        }
-    },
     "hooks": {
         "precreate": {
             "commands": [
