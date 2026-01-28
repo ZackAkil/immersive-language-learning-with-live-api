@@ -35,5 +35,7 @@ env/
 .env
 scripts/deploy.sh
 deploy.sh
+scripts/deploy.ps1
+deploy.ps1
 .pytest_cache/
 
