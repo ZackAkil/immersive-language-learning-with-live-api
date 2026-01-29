@@ -55,10 +55,10 @@ $envVarPairs = @(
 )
 $envVarsStr = ($envVarPairs -join ",").ToString()
 
+# Omit --allow-unauthenticated for secure-by-default (service requires auth). Add it to allow public access.
 gcloud run deploy $SERVICE_NAME `
     --source . `
     --region $REGION `
-    --allow-unauthenticated `
     --project $PROJECT_ID `
     --network default `
     --subnet default `

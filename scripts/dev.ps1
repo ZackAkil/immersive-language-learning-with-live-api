@@ -36,7 +36,7 @@ if (Test-Path "venv\Scripts\python.exe") {
 }
 
 # Resolve py to actual python for backend process (Start-Process needs executable path or command name)
-$backendArgList = @("-m", "uvicorn", "server.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload")
+$backendArgList = @("-m", "uvicorn", "server.main:app", "--host", "127.0.0.1", "--port", "8000", "--reload")
 if ($pythonExe -match "py(\.exe)?$") {
     $backendArgList = @("-3") + $backendArgList
 }
