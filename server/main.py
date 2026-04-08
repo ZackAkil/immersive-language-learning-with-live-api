@@ -57,6 +57,7 @@ MODEL = os.getenv("MODEL", "gemini-live-2.5-flash-native-audio")
 # Use a very long timeout for dev
 SESSION_TIME_LIMIT = int(os.getenv("SESSION_TIME_LIMIT", "180"))
 RECAPTCHA_SITE_KEY = os.getenv("RECAPTCHA_SITE_KEY")
+RECAPTCHA_SCORE_THRESHOLD = float(os.getenv("RECAPTCHA_SCORE_THRESHOLD", "0.5"))
 REDIS_URL = os.getenv("REDIS_URL")
 GLOBAL_RATE_LIMIT = os.getenv("GLOBAL_RATE_LIMIT", "1000 per hour")
 PER_USER_RATE_LIMIT = os.getenv("PER_USER_RATE_LIMIT", "2 per minute")
@@ -68,7 +69,8 @@ app = FastAPI()
 # Initialize Recaptcha Validator
 recaptcha_validator = RecaptchaValidator(
     project_id=PROJECT_ID,
-    recaptcha_key=RECAPTCHA_SITE_KEY
+    recaptcha_key=RECAPTCHA_SITE_KEY or "",
+    score_threshold=RECAPTCHA_SCORE_THRESHOLD
 )
 
 def get_fingerprint_key(request: Request):
