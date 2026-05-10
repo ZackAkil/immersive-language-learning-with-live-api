@@ -63,19 +63,26 @@ cd immersive-language-learning-with-live-api
 
 ### 2. Quick Install
 
-Run the installation script to set up both backend (Python venv) and frontend (Node modules) dependencies:
+Run the installation script to set up both backend (Python) and frontend (Node modules) dependencies:
 
+**Linux / macOS:**
 ```bash
 ./scripts/install.sh
 ```
+
+**Windows (PowerShell):**
+```powershell
+.\scripts\install.ps1
+```
+If scripts are blocked by execution policy, run once: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser`
 
 ### 3. Environment Config
 
 Create a `.env` file in the root directory:
 
-```bash
-cp .env.example .env
-```
+**Linux / macOS:** `cp .env.example .env`
+
+**Windows (PowerShell):** `Copy-Item .env.example .env`
 
 Update `.env` with your Google Cloud details if necessary.
 
@@ -85,9 +92,16 @@ Update `.env` with your Google Cloud details if necessary.
 
 Start both the backend server and frontend development server with a single command:
 
+**Linux / macOS:**
 ```bash
 ./scripts/dev.sh
 ```
+
+**Windows (PowerShell):**
+```powershell
+.\scripts\dev.ps1
+```
+(Backend on port 8000, frontend on port 5173. Press Ctrl+C to stop both.)
 
 This will:
 
@@ -118,19 +132,13 @@ The fastest way to get the app running in production is using Google Cloud Run:
  [![Run on Google Cloud](https://deploy.cloud.run/button.svg)](https://deploy.cloud.run/?utm_source=github&utm_medium=unpaidsoc&utm_campaign=FY-Q1-global-cloud-ai-starter-apps&utm_content=immergo-app&utm_term=-)   
 2.  **Follow the prompts** in the Google Cloud Shell to authorize and deploy.
 
-### 🛠 Manual Deployment (via `deploy.sh`)
+### 🛠 Manual Deployment (via deploy script)
 
-If you prefer to deploy from your terminal, first create your own deployment script from the example:
+If you prefer to deploy from your terminal, first create your own deployment script from the example, edit it with your project details, then run it.
 
-```bash
-cp scripts/example.deploy.sh scripts/deploy.sh
-```
+**Linux / macOS:** `cp scripts/example.deploy.sh scripts/deploy.sh` then edit `scripts/deploy.sh` and run `./scripts/deploy.sh`
 
-Edit `scripts/deploy.sh` with your project details, then run:
-
-```bash
-./scripts/deploy.sh
-```
+**Windows (PowerShell):** `Copy-Item scripts\example.deploy.ps1 scripts\deploy.ps1` then edit `scripts\deploy.ps1` and run `.\scripts\deploy.ps1`
 
 ### Advanced Configuration
 
